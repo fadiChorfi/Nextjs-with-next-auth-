@@ -1,7 +1,7 @@
-import "./globals.css"; 
+import "./globals.css"; // Add this line
 import { Providers } from "./providers";
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;

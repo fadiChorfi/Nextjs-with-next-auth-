@@ -1,10 +1,16 @@
 import { ReactNode } from "react";
+import { Providers } from "../providers";
 
-export default function AuthLayout({ children }: { children: ReactNode }) {
-    
+export default async function AuthLayout({
+  children,
+}: {
+  children: ReactNode;
+}) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }

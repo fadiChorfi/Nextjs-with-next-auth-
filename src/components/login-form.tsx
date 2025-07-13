@@ -53,9 +53,6 @@ export function LoginForm({
           </CardDescription>
         </CardHeader>
         <CardContent>
-          {/* Feedback messages */}
-          
-
           <form onSubmit={loginHandler}>
             <div className="flex flex-col gap-6">
               <div className="grid gap-3">
@@ -92,6 +89,7 @@ export function LoginForm({
 
               <div className="flex flex-col gap-3">
                 <Button type="submit" className="w-full">
+                  {/* {loading ? "Logging in..." : "Login"} */}
                   Login
                 </Button>
                 <Button variant="outline" type="button" className="w-full">

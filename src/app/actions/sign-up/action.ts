@@ -1,4 +1,3 @@
-// app/actions/signUp.ts
 "use server";
 
 import { db } from "@/lib/db";

@@ -5,11 +5,7 @@ import { signOut } from "next-auth/react";
 
 export default function LogoutBtn() {
   return (
-    <Button
-      size={"default"}
-      variant={"destructive"}
-      onClick={() => signOut({ callbackUrl: "/login" })}
-    >
+    <Button size={"default"} variant={"destructive"} onClick={() => signOut()}>
       <svg
         className="w-4 h-4 mr-2"
         fill="none"
