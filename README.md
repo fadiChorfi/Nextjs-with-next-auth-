@@ -1,8 +1,8 @@
-# 🔐 AuthNextJS – Fullstack Auth App with Next.js 14, NextAuth, Drizzle ORM
+# 🔐 AuthNextJS – Fullstack Auth App with Next.js 15, NextAuth, Drizzle ORM
 
 A modern authentication system built using:
 
-- ✅ Next.js 14 App Router
+- ✅ Next.js 15 App Router
 - ✅ NextAuth.js (Credentials Provider)
 - ✅ Drizzle ORM + PostgreSQL
 - ✅ Secure Password Hashing with bcryptjs
@@ -31,7 +31,7 @@ A modern authentication system built using:
 
 | Layer         | Tech                            |
 | ------------- | ------------------------------- |
-| Frontend      | React + Next.js 14 (App Router) |
+| Frontend      | React + Next.js 15 (App Router) |
 | Backend API   | Next.js Route Handlers          |
 | Auth          | NextAuth.js + Credentials       |
 | Database ORM  | Drizzle ORM                     |
@@ -46,6 +46,6 @@ A modern authentication system built using:
 ### 1. Clone the project
 
 ```bash
-git clone https://github.com/yourname/authnextjs
+git clone https://github.com/fadiChorfi/nextjs-auth
 cd authnextjs
 ```
