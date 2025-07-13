@@ -1,3 +1,5 @@
+import './globals.css'  // Add this line
+
 export default function RootLayout({
   children,
 }: Readonly<{
