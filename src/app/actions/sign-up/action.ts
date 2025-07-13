@@ -1,29 +1,28 @@
+// app/actions/signUp.ts
 "use server";
-import { users } from "@/db/schema";
-import { db } from "@/lib/db";
-import { eq } from "drizzle-orm";
-import { hash } from "bcryptjs";
 
-export async function signUp(
-  prevState: { user: null; success: boolean; error: string | null },
-  formData: FormData
-) {
-  const email = formData.get("email") as string;
-  const password = formData.get("password") as string;
-  const userName = formData.get("userName") as string;
+import { db } from "@/lib/db";
+import { users } from "@/db/schema";
+import { hash } from "bcryptjs";
+import { eq } from "drizzle-orm";
+
+export async function signUpAction(_: any, formData: FormData) {
+  const email = formData.get("email")?.toString();
+  const password = formData.get("password")?.toString();
+  const userName = formData.get("userName")?.toString();
 
   if (!email || !password || !userName) {
-    return { error: "Missing fields", success: false, user: null };
+    return { success: false, error: "All fields are required" };
   }
 
   const existing = await db
     .select()
     .from(users)
     .where(eq(users.email, email))
-    .then((res) => res[0]);
+    .then(res => res[0]);
 
   if (existing) {
-    return { error: "User already exists", success: false, user: null };
+    return { success: false, error: "Email already in use" };
   }
 
   const hashedPassword = await hash(password, 10);
@@ -31,17 +30,9 @@ export async function signUp(
   await db.insert(users).values({
     email,
     password: hashedPassword,
-    role: "user",
     userName,
+    role: "user",
   });
 
-  return {
-    user: {
-      email,
-      userName,
-      role: "user",
-    },
-    success: true,
-    error: null,
-  };
+  return { success: true, error: null, email, password };
 }

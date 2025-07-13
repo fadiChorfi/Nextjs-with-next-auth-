@@ -10,18 +10,30 @@ import {
 } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { signUp } from "@/app/actions/sign-up/action";
-import { useActionState } from "react";
+import { useActionState, useEffect } from "react";
+import { signIn } from "next-auth/react";
+import { signUpAction } from "@/app/actions/sign-up/action";
 
 export function SignUpForm({
   className,
   ...props
 }: React.ComponentProps<"div">) {
-  const [state, formAction] = useActionState(signUp, {
-    user: null,
+  const [state, formAction] = useActionState(signUpAction, {
     success: false,
     error: null,
+    email: "",
+    password: "",
   });
+
+  useEffect(() => {
+    if (state.success && state.email && state.password) {
+      signIn("credentials", {
+        email: state.email,
+        password: state.password,
+        callbackUrl: "/dashboard",
+      });
+    }
+  }, [state]);
 
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
