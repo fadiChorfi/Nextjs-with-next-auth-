@@ -38,30 +38,8 @@ A modern authentication system built using:
 | Styling       | TailwindCSS + ShadCN            |
 | Password Hash | bcryptjs                        |
 
----
 
-## 📁 Folder Structure
 
-src/app/
-├── (auth)/
-│ ├── login/page.tsx
-│ ├── signup/page.tsx
-│ └── layout.tsx # Shared layout
-├── dashboard/page.tsx # Protected Dashboard
-├── middleware.ts # Edge Middleware (auth guard)
-├── actions/ # Sign up & login actions
-├── lib/
-│ ├── db.ts # Drizzle DB config
-│ ├── authOptions.ts # NextAuth config
-│ └── utils.ts # Helpers (e.g. cn)
-├── components/ # UI components (input, button, card...)
-└── pages/api/auth/[...nextauth].ts # NextAuth route
-
-yaml
-Copy
-Edit
-
----
 
 ## 🛠️ Setup & Run
 
