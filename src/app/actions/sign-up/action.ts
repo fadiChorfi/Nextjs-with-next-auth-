@@ -5,7 +5,7 @@ import { users } from "@/db/schema";
 import { hash } from "bcryptjs";
 import { eq } from "drizzle-orm";
 
-export async function signUpAction(_: any, formData: FormData) {
+export async function signUpAction(_: unknown, formData: FormData) {
   const email = formData.get("email")?.toString();
   const password = formData.get("password")?.toString();
   const userName = formData.get("userName")?.toString();
